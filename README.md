@@ -1,8 +1,8 @@
-# 🚀 ECS Terraform Infrastructure with Docker
+# ECS Terraform Infrastructure with Docker
 
 Complete AWS ECS infrastructure deployment using Terraform with Docker containerization.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 terraform-learn/
@@ -21,14 +21,14 @@ terraform-learn/
 └── .dockerignore         # Docker ignore file
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
 ### Prerequisites
 
-- ✅ AWS CLI configured
-- ✅ Terraform installed
-- ✅ Docker installed
-- ✅ AWS credentials with ECR permissions
+- AWS CLI configured
+- Terraform installed
+- Docker installed
+- AWS credentials with ECR permissions
 
 ### Step 1: Build and Push Docker Image
 
@@ -51,7 +51,7 @@ After deployment, access your application using the ALB DNS name:
 terraform output alb_dns_name
 ```
 
-## 🐳 Docker Setup
+## Docker Setup
 
 ### Option 1: Simple Nginx Application (Recommended)
 
@@ -73,7 +73,7 @@ docker build -f Dockerfile -t ecs-demo-app .
 docker run -p 3000:3000 ecs-demo-app
 ```
 
-## 🏗️ Infrastructure Components
+## Infrastructure Components
 
 ### Created Resources:
 
@@ -91,7 +91,7 @@ docker run -p 3000:3000 ecs-demo-app
 Internet → ALB → ECS Service → ECS Tasks (Fargate)
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Docker Image
 
@@ -119,7 +119,7 @@ task_memory = 1024
 service_desired_count = 3
 ```
 
-## 📊 Monitoring
+## Monitoring
 
 ### CloudWatch Logs
 
@@ -142,7 +142,7 @@ aws ecs describe-services --cluster ecs-app-cluster --services ecs-app-service
 aws elbv2 describe-target-health --target-group-arn <target-group-arn>
 ```
 
-## 🛠️ Development Workflow
+## Development Workflow
 
 ### 1. Local Development
 
@@ -175,21 +175,21 @@ terraform apply
 # Terraform will use the new image automatically
 ```
 
-## 💰 Cost Optimization
+## Cost Optimization
 
 - **Fargate**: Pay only for what you use
 - **Minimal Resources**: 256 CPU, 512MB RAM by default
 - **Auto Scaling**: Scale based on demand
 - **Spot Instances**: Use for non-critical workloads
 
-## 🔒 Security Features
+## Security Features
 
 - **Private Subnets**: ECS tasks run in private subnets
 - **Security Groups**: Restrict traffic to HTTP/HTTPS
 - **IAM Roles**: Least privilege access
 - **Container Logging**: All logs sent to CloudWatch
 
-## 🧹 Cleanup
+## Cleanup
 
 ### Destroy Infrastructure
 
@@ -204,7 +204,7 @@ terraform destroy
 aws ecr delete-repository --repository-name ecs-demo-app --force
 ```
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Common Issues:
 
@@ -239,18 +239,18 @@ aws ecr delete-repository --repository-name ecs-demo-app --force
    aws ecs describe-services --cluster ecs-app-cluster --services ecs-app-service --query 'services[0].events'
    ```
 
-## 📈 Next Steps
+## Next Steps
 
 Consider adding:
 
-- ✅ HTTPS/SSL certificates
-- ✅ Custom domain names
-- ✅ Auto scaling policies
-- ✅ CI/CD pipeline integration
-- ✅ Monitoring and alerting
-- ✅ Blue-green deployments
+- HTTPS/SSL certificates
+- Custom domain names
+- Auto scaling policies
+- CI/CD pipeline integration
+- Monitoring and alerting
+- Blue-green deployments
 
-## 🎉 Success!
+## Success!
 
 After deployment, you'll have:
 
@@ -260,4 +260,4 @@ After deployment, you'll have:
 - **CloudWatch monitoring**
 - **Infrastructure as Code**
 
-Your application will be available at the ALB DNS name! 🌐
+Your application will be available at the ALB DNS name!
